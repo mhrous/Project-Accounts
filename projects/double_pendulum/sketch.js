@@ -23,10 +23,10 @@ var gui;
 function setup() {
 
   createCanvas(innerWidth, innerHeight);
- 
+
   buffer = createGraphics(width, height);
   buffer.background(200);
-  
+
   physics = new Physics()
 
   gui = createGui('p5.gui');
@@ -46,7 +46,7 @@ function setup() {
   gui.addGlobals('damping');
   sliderRange(-.1, .5, .01);
   gui.addGlobals('g');
-  
+
    doublePendulum = new DoublePendulum(r1,r2,m1,m2)
 
 }
@@ -60,7 +60,6 @@ function draw() {
 
   }
   if(v1 != pv1 || v2 != pv2) {
-    console.log(1)
     pv1 = v1
     pv2 = v2
     doublePendulum.a1_v = v1 /1000
@@ -68,7 +67,7 @@ function draw() {
 
   }
 
-  
+
 
   doublePendulum.r1=r1
   doublePendulum.m1 = m1
@@ -97,8 +96,8 @@ function draw() {
   buffer.strokeWeight(2);
 
   if (frameCount > 1) {
-    x = doublePendulum.ball_2.position.x 
-    y = doublePendulum.ball_2.position.y 
+    x = doublePendulum.ball_2.position.x
+    y = doublePendulum.ball_2.position.y
     buffer.line(px, py, x,y);
   }
   px = doublePendulum.ball_2.position.x
